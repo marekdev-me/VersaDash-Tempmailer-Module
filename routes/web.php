@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\TempMailer\App\Http\Controllers\SessionsController;
 use Modules\TempMailer\App\Http\Controllers\TempMailerController;
+use Modules\TempMailer\App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,18 @@ use Modules\TempMailer\App\Http\Controllers\TempMailerController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('tempmailer', TempMailerController::class)->names('tempmailer');
+Route::group(['prefix' => 'admin/tempmailer'], function () {
+
+    Route::group(['prefix' => 'users'], function () {
+        // Users endpoint
+        Route::get('/', [UsersController::class, 'index'])
+            ->defaults('meta', ['hidden' => false, 'name' => 'Users List'])
+            ->name('admin.tempmailer.users.index');
+    });
+
+    Route::group(['prefix' => 'sessions'], function () {
+        Route::get('/', [SessionsController::class, 'index'])
+            ->defaults('meta', ['hidden' => false, 'name' => 'Sessions List'])
+            ->name('admin.tempmailer.sessions.index');
+    });
 });
