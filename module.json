@@ -1,0 +1,15 @@
+{
+    "name": "TempMailer",
+    "alias": "tempmailer",
+    "description": "This plugin is an external application management interface for TempMailer application",
+    "keywords": [],
+    "canDisable": true,
+    "hasConfig": false,
+    "configRoute": "",
+    "category": "External Projects",
+    "priority": 0,
+    "providers": [
+        "Modules\\TempMailer\\App\\Providers\\TempMailerServiceProvider"
+    ],
+    "files": []
+}
