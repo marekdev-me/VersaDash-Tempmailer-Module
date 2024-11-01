@@ -4,8 +4,8 @@
     "description": "This plugin is an external application management interface for TempMailer application",
     "keywords": [],
     "canDisable": true,
-    "hasConfig": false,
-    "configRoute": "",
+    "hasConfig": true,
+    "configRoute": "/admin/tempmailer/config",
     "category": "External Projects",
     "priority": 0,
     "providers": [

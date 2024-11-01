@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\TempMailer\App\Http\Controllers\ConfigController;
 use Modules\TempMailer\App\Http\Controllers\SessionsController;
 use Modules\TempMailer\App\Http\Controllers\TempMailerController;
 use Modules\TempMailer\App\Http\Controllers\UsersController;
@@ -30,4 +31,6 @@ Route::group(['prefix' => 'admin/tempmailer'], function () {
             ->defaults('meta', ['hidden' => false, 'name' => 'Sessions List'])
             ->name('admin.tempmailer.sessions.index');
     });
+
+    Route::get('/config', [ConfigController::class, 'index'])->name('admin.tempmailer.config.show');
 });
