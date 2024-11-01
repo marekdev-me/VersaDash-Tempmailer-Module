@@ -2,28 +2,19 @@
 
 namespace Modules\TempMailer\App;
 
+use App\Services\PluginOptionService;
 use Artisan;
 
 class ModuleActivator
 {
     public static function activate(): void
     {
-        // Custom activation logic, e.g., run migrations, seed data
-
-//        Artisan::call('migrate', [
-//            '--path' => 'Modules/TempMailer/Database/Migrations',
-//            '--force' => true,
-//        ]);
-
-        // Custom activation logic, e.g., run migrations, seed data
+        //
     }
 
     public static function deactivate(): void
     {
-//        Artisan::call('migrate:rollback', [
-//            '--path' => 'Modules/TempMailer/Database/Migrations',
-//        ]);
-
-        // Custom deactivation logic, e.g., remove settings or data
+        PluginOptionService::delete('temp_mailer', 'api_url');
+        PluginOptionService::delete('temp_mailer', 'api_key');
     }
 }
