@@ -32,5 +32,11 @@ Route::group(['prefix' => 'admin/tempmailer'], function () {
             ->name('admin.tempmailer.sessions.index');
     });
 
-    Route::get('/config', [ConfigController::class, 'index'])->name('admin.tempmailer.config.show');
+    Route::get('/config', [ConfigController::class, 'index'])
+        ->defaults('meta', ['hidden' => false, 'name' => 'Configuration'])
+        ->name('admin.tempmailer.config.show');
+
+    Route::post('/config', [ConfigController::class, 'store'])
+        ->defaults('meta', ['hidden' => true])
+        ->name('admin.tempmailer.config.store');
 });

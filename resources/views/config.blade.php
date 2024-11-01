@@ -12,18 +12,30 @@
             </div>
             <div class="card-body">
 
-                <form action="" method="POST">
+{{--                Validation Errors--}}
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+{{--                Config Form--}}
+                <form action="{{ route('admin.tempmailer.config.store') }}" method="POST">
 
                     {{csrf_field()}}
 
                     <div class="mb-10">
                         <label class="form-label">API Endpoint</label>
-                        <input type="url" class="form-control" placeholder="https://api.expample.com" name="api_url">
+                        <input type="url" class="form-control" value="{{ $apiUri }}" placeholder="https://api.expample.com" name="api_url">
                     </div>
 
                     <div class="mb-10">
                         <label class="form-label">API Key</label>
-                        <input type="password" class="form-control" placeholder="*****************************************" name="api_key">
+                        <input type="password" class="form-control" value="{{ $apiKey }}" placeholder="*****************************************" name="api_key">
                     </div>
 
                     <div class="mb-10">
@@ -33,7 +45,5 @@
 
             </div>
         </div>
-
     </div>
-
 @endsection
