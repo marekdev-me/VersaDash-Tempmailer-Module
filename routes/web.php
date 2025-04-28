@@ -17,7 +17,7 @@ use Modules\TempMailer\App\Http\Controllers\UsersController;
 |
 */
 
-Route::group(['prefix' => 'admin/tempmailer'], function () {
+Route::group(['prefix' => 'admin/tempmailer', 'middleware' => ['auth:web']], function () {
 
     Route::group(['prefix' => 'users'], function () {
         // Users endpoint

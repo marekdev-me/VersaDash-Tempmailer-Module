@@ -1,10 +1,10 @@
 {
-    "name": "nwidart/tempmailer",
+    "name": "versadash/tempmailer",
     "description": "",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "ByteExecLab LLC",
+            "email": "support@byteexeclab.com"
         }
     ],
     "extra": {
@@ -27,5 +27,7 @@
         "psr-4": {
             "Modules\\TempMailer\\Tests\\": "tests/"
         }
+    },
+    "require": {
     }
 }
