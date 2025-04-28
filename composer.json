@@ -28,6 +28,11 @@
             "Modules\\TempMailer\\Tests\\": "tests/"
         }
     },
+    "scripts": {
+        "post-install-cmd": [
+            "versadash\\tempmailer\\App\\Module::install"
+        ]
+    },
     "require": {
     }
 }
