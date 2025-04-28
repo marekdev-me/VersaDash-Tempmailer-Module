@@ -18,14 +18,14 @@ class Module extends AbstractModuleActivator
 
     public static function install(): void
     {
+        echo "Tempmailer module installation process started...\n";
         $sourcePath = base_path('vendor/versadash/tempmailer');
         $destinationPath = base_path('Modules/TempMailer');
 
         if (\File::isDirectory($sourcePath)) {
             \File::copyDirectory($sourcePath, $destinationPath);
-
-            \File::deleteDirectory($destinationPath);
         }
+        echo "Tempmailer module installation process finished...\n";
     }
 
     public static function deinstall(): void
