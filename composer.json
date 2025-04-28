@@ -30,7 +30,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "versadash\\tempmailer\\App\\Module::install"
+            "App\\Module::install"
         ]
     },
     "require": {
